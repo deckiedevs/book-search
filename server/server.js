@@ -4,7 +4,6 @@ const { ApolloServer } = require('apollo-server-express');
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
-// const routes = require('./routes');
 const { authMiddleware } = require('./utils/auth');
 
 const app = express();
@@ -30,8 +29,6 @@ if (process.env.NODE_ENV === 'production') {
 app.get ('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
-
-// app.use(routes);
 
 db.once('open', () => {
     app.listen(PORT, () => { 
