@@ -34,6 +34,7 @@ const SavedBooks = () => {
         }
 
         try {
+            // use REMOVE_BOOK mutation
             await deleteBook({ 
                 variables: { bookId }
             });
